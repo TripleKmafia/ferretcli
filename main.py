@@ -2,6 +2,7 @@
 import httpx
 import json
 import time
+import subprocess
 import sys
 import urllib
 import discord
