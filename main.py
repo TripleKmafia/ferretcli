@@ -5,7 +5,6 @@ import time
 import subprocess
 import sys
 import urllib
-import discord
 from headers import Headers
 from random import randrange
 
