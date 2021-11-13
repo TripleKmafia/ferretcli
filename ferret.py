@@ -157,6 +157,7 @@ def shell():
 		pass
 
 	except Exception as e:
+		print(e)
 		pass
 
 #SHIT4AFTEREXEC KEN BE REMOVED LOLZ
